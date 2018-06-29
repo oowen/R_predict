@@ -94,7 +94,7 @@ legend("topright", pch=1, col = c("red", "blue"),
        legend = c("Train", "Validation") )
 
 best.nrounds = cv.model$best_iteration 
-best.nrounds
+#best.nrounds
 
 xgb.model = xgb.train(paras = xgb.params, 
                       data = dtrain,
@@ -113,5 +113,6 @@ df1c = df1[order(df1$y1),]
 #  geom_line(aes(x=c(1:100),y = y2)) 
 
 library(lattice)
-
-xyplot(y1 + y2 ~ x, df1, type = "p")
+png("output.png",width = 640,height = 360)
+xyplot(y1 + y2 ~ x, df1, type = "l")
+dev.off()
